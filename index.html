@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <h1>Persona Verification Demo</h1>
+    <pre>
+      <code id="code-block">
+      </code>
+    </pre>
+
+    <br />
+    <b id="instruction"></b>
+
+    <!-- Crazy inline -->
+    <style>
+      h1,
+      pre {
+        display: flex;
+        justify-content: center;
+      }
+
+      h1 {
+        color: rgb(53, 70, 85);
+      }
+      pre code {
+        background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 1rem;
+        border-radius: 0.5rem;
+      }
+    </style>
+    <script src="https://cdn.withpersona.com/dist/persona-v4.7.1.js"></script>
+    <script>
+      const codeElement = document.querySelector("#code-block");
+      const instructionElement = document.getElementById("#instruction");
+      codeElement.style.display = "none";
+      const client = new Persona.Client({
+        templateId: "<PERSONA_TEMPLATE_ID>",
+        environmentId: "<PERSONA_ENVIROMENT_ID>",
+        onReady: () => client.open(),
+        onComplete: (data) => {
+          codeElement.style.display = "block";
+          codeElement.innerHTML += `Hey yo!, congrats. Here's your inquiryId => ${data.inquiryId}`;
+          instructionElement.innerHTML += `Do not forget to do all heavy lifting on the backend.`;
+        },
+      });
+    </script>
+  </body>
+</html>
