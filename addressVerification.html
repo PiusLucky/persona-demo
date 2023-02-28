@@ -19,7 +19,7 @@
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
-    <h1>Persona Verification Demo</h1>
+    <h1>Persona Verification Demo - Address</h1>
     <pre>
       <code id="code-block">
       </code>
@@ -45,7 +45,7 @@
         border: 1px solid #999;
         display: block;
         padding: 1rem;
-        border-radius: 0.5rem;
+        border-radius: 0.5rem;  
       }
     </style>
     <script src="https://cdn.withpersona.com/dist/persona-v4.7.1.js"></script>
@@ -54,7 +54,7 @@
       const instructionElement = document.querySelector("#instruction");
       codeElement.style.display = "none";
       const client = new Persona.Client({
-        templateId: "itmpl_tcyBxt8oAiQJ8gUKocq2A7xP",
+        templateId: "itmpl_7ZBB2CmaQyWdrd5odiQXTjEm",
         environmentId: "env_gAiw8gfo7xWgHsro796Ckx8Z",
         onReady: () => client.open(),
         onComplete: (data) => {
